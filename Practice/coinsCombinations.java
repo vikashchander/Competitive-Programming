@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-class coinsPermutation {
+class coinsCombinations {
 
     static class FastReader {
         BufferedReader br;
@@ -61,20 +61,17 @@ class coinsPermutation {
             coins[i] = scan.nextInt();
         }
         problem(num, amt, coins);
+
     }
 
     public static void problem(int num, int amt, int[] coins) {
         int[] dp = new int[amt + 1];
         int mod = 1000000007;
         dp[0] = 1;
-        for (int i = 1; i < dp.length; i++) {
-            for (int j = 0; j < coins.length; j++) {
-
-                if (i - coins[j] >= 0) {
-                    dp[i] += dp[i - coins[j]];
-                    dp[i] %= mod;
-                }
-
+        for (int i = 0; i < coins.length; i++) {
+            for (int j = coins[i]; j < dp.length; j++) {
+                dp[j] += dp[j - coins[i]];
+                dp[j] %= mod;
             }
         }
         System.out.println(dp[amt]);

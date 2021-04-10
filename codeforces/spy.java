@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-class dice {
+class spy {
 
     static class FastReader {
         BufferedReader br;
@@ -49,30 +49,26 @@ class dice {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
-        try {
-            // Your Solve
-            FastReader scan = new FastReader();
-            int t = scan.nextInt();
-            while (t-- > 0) {
-                Long diceStack = scan.nextLong();
-                problem(diceStack);
-            }
-        } catch (Exception e) {
-            return;
-        }
+        FastReader scan = new FastReader();
+        int t = scan.nextInt();
+        while (t-- > 0) {
+            int n = scan.nextInt();
+            int[] arr = new int[n + 1];
+            for (int i = 1; i <= n; i++) {
+                arr[i] = scan.nextInt();
 
+            }
+            problem(arr);
+
+        }
     }
 
-    public static void problem(long n) {
+    public static void problem(int[] arr) {
+        int val = 0;
+        for (int i = 1; i < arr.length; i++) {
 
-        // System.out.println(n);
-
-        System.out.println("dsfasd");
-        if (n < 5) {
-            System.out.println(n);
-            // System.out.println(dp[(int) n]);
         }
     }
 }

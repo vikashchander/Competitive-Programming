@@ -73,11 +73,16 @@ class arrayPeak {
 
     public static void problem(int[] arr, int k, int n) {
         for (int i = 0; i < k; i++) {
+            // swaping
             int l1 = i * 2 + 1;
             int l2 = l1 + 1;
+
             int temp = arr[l1];
+            // System.out.println(temp + " -> " + i);
             arr[l1] = arr[l2];
+            // System.out.println(arr[l2] + " -> " + i);
             arr[l2] = temp;
+
         }
         for (int i : arr) {
             System.out.print(i + " ");

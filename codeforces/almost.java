@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class spy {
+class almost {
 
     static class FastReader {
         BufferedReader br;
@@ -55,29 +55,18 @@ public class spy {
         int t = scan.nextInt();
         while (t-- > 0) {
             int n = scan.nextInt();
-            int[] arr = new int[n + 1];
+            int[][] arr = new int[n][n];
+
             for (int i = 0; i < n; i++) {
-                arr[i] = scan.nextInt();
+                for (int j = 0; j < n; j++)
+                    arr[i][j] = scan.nextInt();
 
             }
-            problem(arr);
+            problem(arr, n);
 
         }
     }
 
-    public static void problem(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            int count = 1;
-            for (int j = 0; j < n; j++) {
-                if (arr[i] == arr[j] && i != j) {
-                    count++;
-                }
-            }
-            if (count == 1) {
-                System.out.println(i + 1);
-                break;
-            }
-        }
+    public static void problem(int[][] arr, int n) {
     }
 }

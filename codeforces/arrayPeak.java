@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class spy {
+class arrayPeak {
 
     static class FastReader {
         BufferedReader br;
@@ -55,29 +55,33 @@ public class spy {
         int t = scan.nextInt();
         while (t-- > 0) {
             int n = scan.nextInt();
-            int[] arr = new int[n + 1];
-            for (int i = 0; i < n; i++) {
-                arr[i] = scan.nextInt();
+            int k = scan.nextInt();
+            int[] arr = new int[n];
 
+            for (int i = 0; i < n; i++) {
+                arr[i] = i + 1;
             }
-            problem(arr);
+            if (k * 2 >= n) {
+                System.out.println(-1);
+
+            } else {
+                problem(arr, k, n);
+            }
 
         }
     }
 
-    public static void problem(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            int count = 1;
-            for (int j = 0; j < n; j++) {
-                if (arr[i] == arr[j] && i != j) {
-                    count++;
-                }
-            }
-            if (count == 1) {
-                System.out.println(i + 1);
-                break;
-            }
+    public static void problem(int[] arr, int k, int n) {
+        for (int i = 0; i < k; i++) {
+            int l1 = i * 2 + 1;
+            int l2 = l1 + 1;
+            int temp = arr[l1];
+            arr[l1] = arr[l2];
+            arr[l2] = temp;
         }
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
     }
 }

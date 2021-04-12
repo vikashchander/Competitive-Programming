@@ -56,7 +56,7 @@ class dice {
             FastReader scan = new FastReader();
             int t = scan.nextInt();
             while (t-- > 0) {
-                Long diceStack = scan.nextLong();
+                long diceStack = scan.nextLong();
                 problem(diceStack);
             }
         } catch (Exception e) {
@@ -66,13 +66,34 @@ class dice {
     }
 
     public static void problem(long n) {
-
-        // System.out.println(n);
-
-        System.out.println("dsfasd");
-        if (n < 5) {
-            System.out.println(n);
-            // System.out.println(dp[(int) n]);
+        long layer = (n / 4) * 44;
+        int rem = (int) (n % 4);
+        if (n >= 4) {
+            if (rem == 0) {
+                layer += 16;
+            }
+            if (rem == 1) {
+                layer += 32;
+            }
+            if (rem == 2) {
+                layer += 44;
+            }
+            if (rem == 3) {
+                layer += 55;
+            }
+            System.out.println(layer);
+        } else {
+            long ans = 0;
+            if (rem == 1) {
+                ans = 20;
+            }
+            if (rem == 2) {
+                ans = 36;
+            }
+            if (rem == 3) {
+                ans = 51;
+            }
+            System.out.println(ans);
         }
     }
 }

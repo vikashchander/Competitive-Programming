@@ -12,7 +12,7 @@ public class gcdLength extends Functions {
         long res2 = (long) Math.pow(10, b - 1);
         long res3 = (long) Math.pow(10, c - 1);
         System.out.println(res1 + " " + (res2 + res3));
-        System.out.println(gcd(res1, res2 + res3) + " dsfsd");
+        // System.out.println(gcd(res1, res2 + res3) + " dsfsd");
     }
 
     public static void main(String[] args) {

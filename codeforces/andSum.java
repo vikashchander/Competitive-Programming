@@ -56,8 +56,12 @@ public class andSum {
         while (t-- > 0) {
             int n = scan.nextInt();
             int k = scan.nextInt();
-            long mod = (int) 1e9 + 7;
-            System.out.println(Math.pow(n, k) % mod);
+            int mod = 1000000007;
+            long res = 1;
+            for (int i = 0; i < k; i++) {
+                res = (res * n) % mod;
+            }
+            System.out.println(res);
 
         }
     }

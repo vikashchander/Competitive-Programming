@@ -1,4 +1,3 @@
-## all class and txt files
-
 *.class
+*.exe
 *.txt

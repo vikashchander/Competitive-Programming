@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-class iss {
+class mod {
     public static class Node {
         int data = 0;
         ArrayList<Node> childs = new ArrayList();;
@@ -62,19 +62,21 @@ class iss {
         FastReader scan = new FastReader();
         int t = scan.nextInt();
         while (t-- > 0) {
-            int k = scan.nextInt();
-            int mod = (int) 10e7;
-            int size = 2 * k;
-
-            long[] arr = new long[size];
-            int sum = 0;
-
-            for (int i = 1; i <= size; i++) {
-                sum += gcd(k + (i * i), k + (i + 1) * (i + 1));
+            long n, m = 0;
+            n = scan.nextLong();
+            m = scan.nextLong();
+            long res = 0;
+            long[] arr = new long[(int) n + 1];
+            Arrays.fill(arr, 1);
+            for (long i = 2; i <= n; i++) {
+                long a = m % i;
+                res += arr[(int) a];
+                for (long j = a; j <= n; j += i) {
+                    arr[(int) j]++;
+                }
 
             }
-
-            System.out.println(sum % mod);
+            System.out.println(res);
 
         }
     }

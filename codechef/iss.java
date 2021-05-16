@@ -62,19 +62,29 @@ class iss {
         FastReader scan = new FastReader();
         int t = scan.nextInt();
         while (t-- > 0) {
-            int k = scan.nextInt();
-            int mod = (int) 10e7;
-            int size = 2 * k;
 
-            long[] arr = new long[size];
-            int sum = 0;
-
-            for (int i = 1; i <= size; i++) {
-                sum += gcd(k + (i * i), k + (i + 1) * (i + 1));
-
-            }
-
-            System.out.println(sum % mod);
+            int n =(int) 4e6+7;
+            int data[]= new int[n];
+            int res[] = new int[n];
+ for(int i=0; i<n; i++){
+  data[i] = i;
+  res[i] = 0;
+ }
+ for(int i=2; i<n; i++){
+  if(data[i] == i){
+   data[i] = i-1;
+   for(int j=2*i; j<n; j+=i)
+    data[j] = (data[j]/i) * (i-1);
+  }
+ }
+ for(int i=1; i<n; i++){
+  res[i] += i-1;
+  for(int j=2*i; j<n; j+=i){
+   res[j] += i * ( (1+data[j/i]) / 2);
+  }
+ }
+   int k = scan.nextInt();
+ System.out.println(res[4*k+1]);
 
         }
     }

@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class A_Amusing_Joke {
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +52,44 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
-
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
-        }
-
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
+        String str1 = scn.next();
+        String str2 = scn.next();
+        String str3 = scn.next();
+        int len = str1.length()+str2.length();
+        int count =0;
+        if(str3.length() > len){
+            System.out.println("NO");
         }else{
-            System.out.println("IGNORE HIM!");
-        }
+             HashMap<Character,Integer> hm = new HashMap<>();
 
-       
+             for(int i=0; i<str3.length(); i++){
+                 hm.put(str3.charAt(i),hm.getOrDefault(str3.charAt(i),0)+1);
+             }
+
+           for(char ch: str1.toCharArray()){
+                 if(hm.containsKey(ch)){
+                     count++;
+                     hm.put(ch,hm.get(ch)-1);
+                     if(hm.get(ch)<=0){
+                         hm.remove(ch);
+                     }
+                 }
+           }
+
+           for(char ch: str2.toCharArray()){
+            if(hm.containsKey(ch)){
+                count++;
+                hm.put(ch,hm.get(ch)-1);
+                if(hm.get(ch)<=0){
+                    hm.remove(ch);
+                }
+            }
+         }
+        if(count ==len)
+        System.out.println("YES");
+        else 
+        System.out.println("NO");
     }
 
+}
 }

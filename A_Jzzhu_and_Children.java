@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class A_Jzzhu_and_Children{
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +52,28 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
+        int n = scn.nextInt();
+        int m = scn.nextInt();
+        int[] arr = new int[n];
 
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
+        for(int i=0; i<n; i++){
+            arr[i] = scn.nextInt();
         }
-
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
-        }else{
-            System.out.println("IGNORE HIM!");
-        }
-
-       
+      int max =-1;
+      int idx = -1;
+      for(int i=0; i<n; i++){
+          if(arr[i]%m ==0){
+              arr[i] = arr[i]/m;
+          }else{
+              arr[i] = 1+(arr[i]/m);
+          }
+          if(arr[i] >=max){
+              max = arr[i];
+              idx = i;
+          }
+      }
+      
+      System.out.println(idx+1);
     }
-
+    
 }

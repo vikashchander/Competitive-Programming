@@ -1,11 +1,10 @@
-/* package codechef; // don't place package name! */
 
+/* package codechef; // don't place package name! */
 import java.util.*;
-import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class A_DZY_Loves_Chessboard {
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +51,36 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
+        int n = scn.nextInt();
+        int m = scn.nextInt();
 
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
+        char[][] mat = new char[n][m];
+
+        for (int i = 0; i < n; i++) {
+            String s = scn.next();
+            mat[i] = s.toCharArray();
         }
 
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
-        }else{
-            System.out.println("IGNORE HIM!");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+
+                if (mat[i][j] == '.') {
+                    if ((i + j) % 2 == 0) {
+                        mat[i][j] = 'B';
+                    } else {
+                        mat[i][j] = 'W';
+                    }
+                }
+
+            }
         }
 
-       
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                System.out.print(mat[i][j] + "");
+            }
+            System.out.println("");
+        }
+
     }
-
 }

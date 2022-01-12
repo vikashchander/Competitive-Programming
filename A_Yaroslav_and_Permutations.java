@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class A_Yaroslav_and_Permutations {
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +52,41 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
+        int n = scn.nextInt();
+        int[] arr = new int[n];
 
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
+        for (int i = 0; i < n; i++) {
+            arr[i] = scn.nextInt();
         }
 
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
-        }else{
-            System.out.println("IGNORE HIM!");
+        int res = 0;
+
+        for (int i = 0; i < n; i++) {
+            int ptr = 0;
+            for (int j = 0; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    ptr++;
+                }
+                if (ptr > res) {
+                    res = ptr;
+                }
+            }
         }
 
-       
+        if (n % 2 == 0) {
+            if (res <= (n / 2)) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        } else {
+            if (res <= (n / 2) + 1) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+
     }
 
 }

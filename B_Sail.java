@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class B_Sail {
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +52,42 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
+        int n = scn.nextInt();
+        int sx = scn.nextInt();
+        int sy = scn.nextInt();
+        int ex = scn.nextInt();
+        int ey = scn.nextInt();
+        String str = scn.nextLine();
+        int count = -1;
+        for (int i = 0; i < n; i++) {
 
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
+            if (str.charAt(i) == 'E') {
+                if (sx < ex) {
+                    sx += 1;
+                }
+            } else if (str.charAt(i) == 'W') {
+                if (sx > ex) {
+                    sx -= 1;
+                }
+            } else if (str.charAt(i) == 'N') {
+                if (sy < ey) {
+                    sy += 1;
+                }
+            } else if (str.charAt(i) == 'S') {
+                if (sy > ey) {
+                    sy -= 1;
+                }
+            }
+
+            if (sx == ex && sy == ey) {
+                count = i + 1;
+                break;
+            }
         }
-
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
-        }else{
-            System.out.println("IGNORE HIM!");
-        }
-
-       
+        if (count != -1) {
+            System.out.println(count);
+        } else
+            System.out.println(-1);
     }
 
 }

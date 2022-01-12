@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class A_k_String {
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +52,37 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
+        int n = scn.nextInt();
 
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
+        String str = scn.next();
+        boolean check = true;
+        int[] arr = new int[26];
+
+        for (int i = 0; i < str.length(); i++) {
+            arr[str.charAt(i) - 'a']++;
         }
 
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
-        }else{
-            System.out.println("IGNORE HIM!");
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % n != 0) {
+                System.out.println(-1);
+                check = false;
+                return;
+            }
         }
 
-       
+        StringBuilder sb = new StringBuilder();
+        if (check) {
+            for (int i = 0; i < arr.length; i++) {
+                int x = arr[i] / n;
+                while (x-- > 0) {
+                    sb.append((char)(i + 'a'));
+                }
+            }
+
+            while (n-- > 0) {
+                System.out.print(sb);
+            }
+        }
+
     }
-
 }

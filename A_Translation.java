@@ -1,11 +1,10 @@
 /* package codechef; // don't place package name! */
 
 import java.util.*;
-import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class A_Translation{
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +51,37 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
-
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
-        }
-
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
+        String str1 = scn.next();
+        String str2 = scn.next();
+        int i = 0;
+        int j = str1.length()-1;
+        int m = 0; 
+        int n = str2.length()-1;
+        boolean checker = false;
+        if(str1.length() != str2.length()){
+             System.out.print("NO");
         }else{
-            System.out.println("IGNORE HIM!");
+           while(i<str1.length() && m<str2.length()){
+            if(str1.charAt(i) != str2.charAt(n) || str1.charAt(j) != str2.charAt(m)){
+                System.out.println("NO");
+                checker = true;
+                break;
+            }
+               if(str1.charAt(i) == str2.charAt(n)){
+                  i++;
+                  n--;
+               }else if(str1.charAt(j)  == str2.charAt(m)) {
+                  j--;
+                  m++;
+               }
+
+               
+           }
+
+           if(!checker){
+               System.out.println("YES");
+           }
         }
 
-       
     }
-
 }

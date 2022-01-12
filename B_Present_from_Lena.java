@@ -1,11 +1,10 @@
-/* package codechef; // don't place package name! */
 
+/* package codechef; // don't place package name! */
 import java.util.*;
-import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class B_Present_from_Lena {
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +51,13 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
+        int n = scn.nextInt();
 
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
+        for(int i=0; i<2*n+1; i++){
+            for(int j=0; j<2*n-i; j--){
+                    
+            }
         }
-
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
-        }else{
-            System.out.println("IGNORE HIM!");
-        }
-
-       
     }
 
 }

@@ -5,7 +5,7 @@ import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class B_Pashmak_and_Flowers {
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +52,35 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
-
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
+        int n = scn.nextInt();
+        int[] beauty = new int[n];
+        for (int i = 0; i < n; i++) {
+            beauty[i] = scn.nextInt();
         }
 
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
-        }else{
-            System.out.println("IGNORE HIM!");
+        Arrays.sort(beauty);
+
+        long tn = 0, tx = 0;
+        int min = beauty[0];
+        int max = beauty[n - 1];
+        int difference = max - min;
+
+        for (int i = 0; i < beauty.length; i++) {
+            if (beauty[i] == min)
+                tn++;
+            if (beauty[i] == max)
+                tx++;
         }
 
-       
+        if (tn == tx && tn == n) {
+            long nn = n;
+            long comb = nn * (nn - 1) / 2;
+            System.out.println(difference + " " + comb);
+        } else {
+            long comb = tn * tx;
+            System.out.println(difference + " " + comb);
+        }
+
     }
 
 }

@@ -1,11 +1,10 @@
-/* package codechef; // don't place package name! */
 
+/* package codechef; // don't place package name! */
 import java.util.*;
-import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class A_Dragons {
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +51,40 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
+        int s = scn.nextInt();
+        int n = scn.nextInt();
 
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
+        Dragon[] dragons = new Dragon[n];
+
+        for (int i = 0; i < n; i++) {
+            Dragon d = new Dragon();
+            d.str = scn.nextInt();
+            d.bon = scn.nextInt();
+            dragons[i] = d;
         }
 
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
-        }else{
-            System.out.println("IGNORE HIM!");
+        Arrays.sort(dragons);
+        boolean ok = true;
+
+        for (int i = 0; i < n && ok; i++) {
+            if (s > dragons[i].str) {
+                s += dragons[i].bon;
+            } else {
+                ok = false;
+            }
         }
 
-       
+        String ans = ok ? "YES" : "NO";
+
+        System.out.println(ans);
     }
 
+    public static class Dragon implements Comparable<Dragon> {
+        int str;
+        int bon;
+
+        public int compareTo(Dragon o) {
+            return this.str - o.str;
+        }
+    }
 }

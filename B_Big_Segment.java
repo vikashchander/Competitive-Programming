@@ -1,11 +1,10 @@
 /* package codechef; // don't place package name! */
 
 import java.util.*;
-import java.lang.*;
 import java.io.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
-public class A_Boy_or_Girl {
+public class B_Big_Segment {
 
     static class FastReader {
         BufferedReader br;
@@ -52,20 +51,28 @@ public class A_Boy_or_Girl {
     public static void main(String[] args) throws java.lang.Exception {
         // your code goes here
         FastReader scn = new FastReader();
-        String test = scn.nextLine();
-        HashSet<Character> hs = new HashSet<>();
+         int n = scn.nextInt();
+         int min = Integer.MAX_VALUE;
+         int max = Integer.MIN_VALUE;
+         int[] arr1 = new int[n];
+         int[] arr2 = new int[n];
 
-        for(int i=0; i<test.length(); i++){
-            hs.add(test.charAt(i));
+         for(int i=0; i<n; i++){
+             int x = scn.nextInt();
+             int y = scn.nextInt();
+             arr1[i] = x;
+             arr2[i] =y;
+             min = Math.min(min, x);
+             max = Math.max(max,y);
+         }
+// System.out.println(min+" "+max);
+           for(int i=0; i<n; i++){
+               if(arr1[i] == min && arr2[i] == max){
+                System.out.println(i+1);   
+                return;
+               }
+           }
+           System.out.println(-1);
         }
-
-        if(hs.size()%2==0){
-System.out.print("CHAT WITH HER!");
-        }else{
-            System.out.println("IGNORE HIM!");
-        }
-
-       
-    }
 
 }
